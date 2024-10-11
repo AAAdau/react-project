@@ -1,0 +1,46 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure full height of viewport */
+}
+
+main {
+    flex: 1;
+    /* Allow main to grow and fill space */
+}
+
+.footer {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+}
+
+.footer-content {
+    max-width: 800px;
+    /* Limit width */
+    margin: auto;
+    /* Center align */
+}
+
+.footer-nav {
+    margin-top: 10px;
+    /* Space above navigation links */
+}
+
+.footer-nav a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
