@@ -18,9 +18,11 @@
 }
 
 .perfume-img img {
-    width: 1300px;
+    width: 1400px;
     position: relative;
-    left: 6%;
+    left: 8%;
     top: 30%;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
+

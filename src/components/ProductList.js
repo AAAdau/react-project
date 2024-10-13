@@ -76,6 +76,7 @@ export default function ProductList() {
                         <h3 onClick={() => handleProductClick(product.id)} className="product-name">
                             {product.name}
                         </h3>
+                        
                         <p>{product.price}</p>
                         <p>Brand: {product.brand}</p>
                         <button

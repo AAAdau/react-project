@@ -8,15 +8,19 @@
 .category-selection {
     margin-bottom: 20px;
     position: relative;
-    background-color: rgb(188, 75, 120);
+    /* background-color: rgb(188, 75, 120); */
     width: 40%;
+    margin: auto;
+    width: 210px;
+    margin-top: 20px;
+    
 }
 
 .category-selection button {
     margin: 0;
     padding: 10px;
     cursor: pointer;
-    background-color: rgb(188, 75, 120);
+    background-color: #f9f9f9; 
     border: none;
     font-size: 17px;
     font-weight: 550;
@@ -65,14 +69,72 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin: auto;
+    width: 1400px;
+    margin-bottom: 40px;
 }
 
 .product-item {
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* 元素在垂直方向上均匀分布 */
+    align-items: center;             /* 水平居中对齐 */
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-top: 20px;
+    min-height: 350px;               /* 设置最小高度，确保所有元素对齐 */
 }
 
 .product-image {
-    width: 150px;
-    height: 150px;
+    width: 100%;             
+    height: 150px;            /* 设置固定高度，保持图片大小一致 */
+    object-fit: cover;        /* 保持图片比例，裁剪多余部分 */
+    margin-bottom: 10px;      
 }
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;      
+    cursor: pointer;
+    min-height: 40px;         /* 确保名称区域高度一致 */
+}
+
+.product-item p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+button.favorite {
+    background-color: #f2e9ec;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+button.favorite.active {
+    background-color: #f0dde1;
+    color: #1e1d1d;
+}
+
+.product-name {
+    cursor: pointer;             /* 鼠标悬停时显示手型 */
+    transition: color 0.3s;     /* 增加颜色变化的过渡效果 */
+}
+
+.product-name.active {
+    color: #ff0000;             /* 点击后的颜色 */
+}
+
+
+
+
+
+
+
+

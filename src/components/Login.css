@@ -15,7 +15,8 @@
     width: 310px;
     height: 500px;
     position: relative;
-    left: 33%;
+    /* left: 10%; */
+    margin: auto;
     top: 8%;
 }
 
