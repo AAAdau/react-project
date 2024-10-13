@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import './Header.css';
-import homelogo from "../images/perfume-brand-name-monogrm-vector.jpg";
+import homelogo from "../images/perfume-bold-brush-calligraphy-text-260nw-1886793559.jpg";
 import searchlogo from "../images/minimal-48-512.webp";
 import cartlogo from "../images/purse.svg";
 
@@ -35,8 +35,7 @@ export default function Header() {
                             <img
                                 src={homelogo}
                                 alt="Perfume Brand Logo"
-                                className="logo"
-                                width="90px"
+                                className="home-logo"
                             />
                         </NavLink>
                     </li>
@@ -45,9 +44,14 @@ export default function Header() {
                     <>
                         <ul className="nav-right">
                             <li>
+                                <NavLink to="/favorite">
+                                    Favorite
+                                </NavLink>
+                            </li>
+                            <li>
                                 <NavLink to="/cart">
-                                    <img className="purse" src={cartlogo} width="20px" />
-                                    Cart {cartCount > 0 && `(${cartCount})`} {/* Show count if greater than 0 */}
+                                    {/* <img className="purse" src={cartlogo} width="20px" /> */}
+                                    Cart {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
                                 </NavLink>
                             </li>
                             <li><NavLink to="/shop">Shop</NavLink></li>

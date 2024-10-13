@@ -1,3 +1,26 @@
-h1 {
-    margin-top: 108px;
+.page1 {
+    margin-top: 140px;
+}
+
+.page1 h2 {
+    width: 20%;
+    position: absolute;
+    left: 43%;
+    top: 12%;
+    font-weight: 400;
+}
+
+.page1 img {
+    width: 100px;
+    position: absolute;
+    left: 36%;
+    top: 15.85%;
+}
+
+.perfume-img img {
+    width: 1300px;
+    position: relative;
+    left: 6%;
+    top: 30%;
+    margin-top: 20px;
 }

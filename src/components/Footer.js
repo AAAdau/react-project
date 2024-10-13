@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <p>© 2024 Your Company Name. All Rights Reserved.</p>
+                <p>© 2024 Perfume company. All Rights Reserved.</p>
                 <nav className="footer-nav">
                     <a href="/about">About Us</a>
                     <a href="/contact">Contact</a>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './ProductList.css';
 import products from "../data/products";
@@ -9,7 +9,15 @@ export default function ProductList() {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [hoveringBrand, setHoveringBrand] = useState(false);
     const [selectedBrand, setSelectedBrand] = useState(null);
+    const [favorites, setFavorites] = useState(() => {
+        const storedFavorites = localStorage.getItem("favorites");
+        return storedFavorites ? JSON.parse(storedFavorites) : [];
+    });
     const navigate = useNavigate();
+
+    useEffect(() => {
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    }, [favorites]);
 
     const handleCategorySelection = (category) => {
         setSelectedCategory(category);
@@ -18,6 +26,16 @@ export default function ProductList() {
 
     const handleProductClick = (id) => {
         navigate(`/product/${id}`);
+    };
+
+    const toggleFavorite = (product) => {
+        if (favorites.includes(product.id)) {
+            // Remove from favorites
+            setFavorites(favorites.filter((favoriteId) => favoriteId !== product.id));
+        } else {
+            // Add to favorites
+            setFavorites([...favorites, product.id]);
+        }
     };
 
     const filteredProducts = selectedCategory
@@ -60,6 +78,12 @@ export default function ProductList() {
                         </h3>
                         <p>{product.price}</p>
                         <p>Brand: {product.brand}</p>
+                        <button
+                            onClick={() => toggleFavorite(product)}
+                            className={favorites.includes(product.id) ? "favorite active" : "favorite"}
+                        >
+                            {favorites.includes(product.id) ? "Remove from Favorites" : "Add to Favorites"}
+                        </button>
                     </div>
                 ))}
             </div>

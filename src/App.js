@@ -9,7 +9,7 @@ import SignUp from "./components/Signup";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
-
+import Favorite from "./components/Favorite";
 function App() {
   const location = useLocation();
 
@@ -25,6 +25,7 @@ function App() {
           <Route path="/search" element={<SearchResults />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/favorite" element={<Favorite />} />
         </Routes>
       </main>
       <Footer />

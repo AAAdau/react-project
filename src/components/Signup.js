@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import './Signup.css';
 
@@ -7,49 +7,41 @@ export default function SignUp() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        termsAccepted: false // New state for the checkbox
     });
 
-    // Handle input changes
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, type, checked, value } = e.target;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value
+            [name]: type === 'checkbox' ? checked : value
         }));
     };
 
-    // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!formData.termsAccepted) {
+            alert("You must accept the terms and conditions.");
+            return;
+        }
         console.log('User Data:', formData); // For now, log the data
-        // Here you can add your API call to register the user
+    };
+
+    const handleNavigateToLogin = () => {
+        navigate("/login");
     };
 
     return (
         <div className="signup-page">
-            <header>
-                <nav className="navbar">
-                    <ul className="nav-left">
-                        <li>
-                            <NavLink to="/home">
-                                <img
-                                    src="https://static.vecteezy.com/system/resources/previews/020/292/685/non_2x/perfume-brand-name-monogrm-vector.jpg"
-                                    alt="Perfume Brand Logo"
-                                    className="logo"
-                                    width="90px"
-                                />
-                            </NavLink>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
             <div className="signup-container">
                 <h2>Sign Up</h2>
                 <form onSubmit={handleSubmit} className="signup-form">
                     <div className="form-group">
-                        <label htmlFor="name">Name</label>
                         <input
+                            placeholder="username"
                             type="text"
                             id="name"
                             name="name"
@@ -59,8 +51,8 @@ export default function SignUp() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
                         <input
+                            placeholder="email"
                             type="email"
                             id="email"
                             name="email"
@@ -70,8 +62,8 @@ export default function SignUp() {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="password">Password</label>
                         <input
+                            placeholder="password"
                             type="password"
                             id="password"
                             name="password"
@@ -80,9 +72,24 @@ export default function SignUp() {
                             required
                         />
                     </div>
+                    <div className="form-group" >
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="termsAccepted"
+                                checked={formData.termsAccepted}
+                                onChange={handleChange}
+                                required
+                            />
+                            I agree with the Terms & Conditions
+                        </label>
+                    </div>
                     <button type="submit" className="signup-button">Sign Up</button>
                 </form>
-            </div>
-        </div>
+                <div className="login-link">
+                    <span onClick={handleNavigateToLogin} className="login-link-text"> Already have an account? Sign In</span>
+                </div>
+            </div >
+        </div >
     );
 }
